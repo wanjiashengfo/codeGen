@@ -1,11 +1,21 @@
 package com.xgen.genconf;
 
 import com.xgen.genconf.vo.GenConfModel;
+import com.xgen.genconf.vo.ModuleConfModel;
+
+import java.util.Map;
 
 public interface GenConfEbi {
     /**
-     * »ñÈ¡x-genºËĞÄ¿ò¼ÜÔËĞĞËùĞèÒªµÄÅäÖÃÊı¾İmodel
+     * è·å–x-genæ ¸å¿ƒæ¡†æ¶è¿è¡Œæ‰€éœ€è¦çš„é…ç½®æ•°æ®model
+     *
      * @return
      */
     public GenConfModel getGenConf();
+
+    /**
+     * è·å–éœ€è¦ç”Ÿæˆçš„æ‰€æœ‰æ¨¡å—çš„é…ç½®
+     * @return keyæ¨¡å—åç§° valueç›¸åº”æ¨¡å—çš„é…ç½®æ•°æ®
+     */
+    public Map<String,ModuleConfModel> getModuleConf();
 }
