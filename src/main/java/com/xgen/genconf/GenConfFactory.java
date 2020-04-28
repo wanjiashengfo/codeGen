@@ -5,6 +5,6 @@ public class GenConfFactory {
     }
 
     public static GenConfEbi createGernConfEbi (){
-        return new GenConfEbo();
+        return  GenConfEbo.getInstance();
     }
 }
