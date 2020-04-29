@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Theme id="mytheme">
+	<GenTypes>
+		<GenType id="GenVo" type="cn.javass.themes.mytheme.actions.VoAction">
+			<Params>
+				<Param id="relativePath">vo</Param>
+				<Param id="mbPathFile">vo/Model.txt</Param>
+				<Param id="preGenFileName"></Param>
+				<Param id="afterGenFileName">Model.java</Param>
+			</Params>
+		</GenType>
+		<GenType id="GenVoHbmXml" type="cn.javass.themes.mytheme.actions.VoHbmXmlAction">
+			<Params>
+				<Param id="relativePath">vo</Param>
+				<Param id="mbPathFile">vo/Model.hbm.txt</Param>
+				<Param id="preGenFileName"></Param>
+				<Param id="afterGenFileName">Model.hbm.xml</Param>
+			</Params>			
+		</GenType>
+
+	</GenTypes>
+	<GenOutTypes>
+		<GenOutType id="Console" type="cn.javass.xgen.output.types.OutputToConsole"></GenOutType>
+		<GenOutType id="File" type="cn.javass.xgen.output.types.OutputToFile"></GenOutType>
+		<GenOutType id="MyDB" type="cn.javass.themes.mytheme.outtype.MyOutput"></GenOutType>
+	</GenOutTypes>
+	<Providers>
+		<Provider id="XmlGenConf" type="cn.javass.xgen.genconf.implementors.xmlimpl.GenConfXmlImpl"></Provider>
+		<Provider id="XmlModuleGenConf" type="cn.javass.xgen.genconf.implementors.xmlimpl.ModuleGenConfXmlImpl"></Provider>
+		<Provider id="XmlThemeConf" type="cn.javass.xgen.genconf.implementors.xmlimpl.ThemeXmlImpl"></Provider>
+	</Providers>	
+</Theme>

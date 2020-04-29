@@ -2,9 +2,14 @@ package com.xgen.util.readxml;
 
 import org.w3c.dom.Element;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ElementTerminalExpression extends ReadXmlExpression{
+    /**
+     * 用来记录组合的子readxmlexpression元素
+     */
+    private List<ReadXmlExpression> eles = new ArrayList<ReadXmlExpression>();
     /**
      * 元素的名称
      */
@@ -18,7 +23,9 @@ public class ElementTerminalExpression extends ReadXmlExpression{
         this.eleName = eleName;
         this.condition = condition;
     }
-
+    public void addEle(ReadXmlExpression readXmlExpression){
+        this.eles.add(readXmlExpression);
+    }
     public String[] interpret(Context context) {
         //1.获取到自己这个元素
         //1.1先获取到父元素
