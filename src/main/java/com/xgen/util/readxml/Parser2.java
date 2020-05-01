@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.util.*;
 
-public class Parser {
+public class Parser2 {
     private static final String FORWAR_SLASH = "/";
     private static final String DOT = ".";
     private static final String DOLLAR = "$";
@@ -16,7 +16,7 @@ public class Parser {
      */
     private static List<String> listEle = null;
 
-    private Parser() {
+    private Parser2() {
     }
     //////////////////备忘录部分-begin//////////////////
     @Data

@@ -6,19 +6,19 @@ public class Test {
     public static void main(String[] args) throws Exception {
         ElementExpression genconf = new ElementExpression("GenConf","");
         ElementExpression needGens = new ElementExpression("NeedGens","");
-        ElementsExpression needGen = new ElementsExpression("NeedGen","");
-        ElementsExpression params = new ElementsExpression("Params","");
-        ElementsTerminalExpression param = new ElementsTerminalExpression("Param","id=fileName");
+        ElementsExpression needGen = new ElementsExpression("NeedGen","id=UserGenConf");
 
-       //组装一个抽象语法树
+        ElementsTerminalExpression param = new ElementsTerminalExpression("Param","");
+//
+//       //组装一个抽象语法树
         genconf.addEle(needGens);
         needGens.addEle(needGen);
-        needGen.addEle(params);
-        params.addEle(param);
+
+        needGen.addEle(param);
         Context context = Context.getInstance("xgenconfxml/GenConf.xml");
 
-        String[] ss = genconf.interpret(context);
-
+        String[] ss = Parser.parse("GenConf/NeedGens/NeedGen$/Params/Param$[id=fileName2]").interpret(context);
+//        String[] ss = genconf.interpret(context);
         for (String s : ss) {
             System.out.println(s);
         }

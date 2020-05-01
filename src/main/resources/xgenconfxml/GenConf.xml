@@ -5,12 +5,12 @@
 		<NeedGen id="UserGenConf" provider="XmlModuleGenConf" themeId="simple">
 			<Params>
 				<Param id="fileName">UserGenConf.xml</Param>
-				<Param id="fileName2">UserGenConf.xml</Param>
+				<Param id="fileName2">UserGenConf1333.xml</Param>
 			</Params>
 		</NeedGen>
 		<NeedGen id="UserGenConf1" provider="XmlModuleGenConf" themeId="simple">
                 <params>
-                    <param id="fileName">UserGenConf1.xml</param>
+                    <param id="fileName3">UserGenConf14444.xml</param>
                 </params>
             </NeedGen>
 		<!--	  <NeedGen id="UserGenConf2" provider="XmlModuleGenConf" themeId="simple">
