@@ -33,7 +33,7 @@ public class GenConfEbo implements GenConfEbi {
         return ConfManager.getInstance(provider).getGenConf();
     }
 
-    public Map<String, ModuleConfModel> getModuleConf() {
+    public Map<String, ModuleConfModel> getMapModuleConf() {
         //获取相应的配置数据
         return ConfManager.getInstance(provider).getMapModuleConf();
     }

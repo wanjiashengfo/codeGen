@@ -17,5 +17,5 @@ public interface GenConfEbi {
      * 获取需要生成的所有模块的配置
      * @return key模块名称 value相应模块的配置数据
      */
-    public Map<String,ModuleConfModel> getModuleConf();
+    public Map<String,ModuleConfModel> getMapModuleConf();
 }

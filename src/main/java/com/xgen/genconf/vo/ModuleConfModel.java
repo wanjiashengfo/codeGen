@@ -18,7 +18,7 @@ public class ModuleConfModel {
     /**
      * 用户需要生成的具体功能
      */
-    private Map<String,List<String>> maNeedGenTypes = new HashMap<String, List<String>>();
+    private Map<String,List<String>> mapNeedGenTypes = new HashMap<String, List<String>>();
     /**
      * 模块生成需要的扩展数据
      */

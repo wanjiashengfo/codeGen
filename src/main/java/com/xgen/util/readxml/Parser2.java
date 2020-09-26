@@ -87,7 +87,7 @@ public class Parser2 {
      * @param expr
      * @return
      */
-    private static ReadXmlExpression parse2(String expr){
+    public static ReadXmlExpression parse2(String expr){
         listEle = new ArrayList<String>();
         //1.分解表达式，得到需要解析的元素名称和该元素对应的解析模型
         Map<String, ParseModel> mapPath = parseMapPath(expr);

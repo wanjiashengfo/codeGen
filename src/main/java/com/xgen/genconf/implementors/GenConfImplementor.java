@@ -25,5 +25,5 @@ public interface GenConfImplementor {
      * 获取核心框架配置中注册外部主题的公共常亮
      * @return
      */
-    public Map<String,String> getMapConstances();
+    public Map<String,String> getMapConstants();
 }

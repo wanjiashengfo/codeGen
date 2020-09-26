@@ -1,16 +1,17 @@
 package com.xgen.util.readxml;
 
+import lombok.Data;
 import org.w3c.dom.Element;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
+@Data
 public class ElementsTerminalExpression extends ReadXmlExpression{
     /**
      * 用来记录组合的子readxmlexpression元素
      */
-    private List<ReadXmlExpression> eles = new ArrayList<ReadXmlExpression>();
+
     /**
      * 元素的名称
      */
@@ -53,5 +54,16 @@ public class ElementsTerminalExpression extends ReadXmlExpression{
             }
         }
         return ss;
+    }
+    @Override
+    public Object clone(){
+        Object obj = null;
+        try{
+            obj = super.clone();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return obj;
     }
 }
