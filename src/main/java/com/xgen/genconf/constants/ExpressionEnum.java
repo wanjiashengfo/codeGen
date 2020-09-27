@@ -3,7 +3,8 @@ package com.xgen.genconf.constants;
 import lombok.Getter;
 
 public enum ExpressionEnum {
-    dot("."),separator("/"),dollar("$"),openBracket("["),closeBracket("]"),equal("="),comma(",");
+    dot("."),separator("/"),dollar("$"),openBracket("["),closeBracket("]"),
+    equal("="),comma(","),xml("xml"),xmlFilePre("xgenconfxml/");
     @Getter
     private String expr;
 
