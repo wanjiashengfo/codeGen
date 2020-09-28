@@ -38,7 +38,7 @@ public class Context {
         return c;
     }
 
-    private void init(){
+    public void init(){
         preEles = new ArrayList<Element>();
     }
     private Context(Document document) {

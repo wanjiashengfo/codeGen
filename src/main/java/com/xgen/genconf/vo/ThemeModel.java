@@ -11,4 +11,5 @@ public class ThemeModel {
     private String location;
     private Map<String,GenTypeModel> mapGenTypes = new HashMap<String, GenTypeModel>();
     private Map<String,String> mapProviders = new HashMap<String, String>();
+    private Map<String,String> mapGenOutTypes = new HashMap<String, String>();
 }
