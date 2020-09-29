@@ -6,7 +6,7 @@ public class Test6jiexiqi {
     public static void main(String[] args) throws Exception {
 
 
-        Context context = Context.getInstance("xgenconfxml/GenConf.xml");
+        Context context = Context.getInstance("themes/GenConf.xml");
         String[] ss;
         ss = Parser2.parse2("GenConf/NeedGens/NeedGen/Params/Param$[id=fileName2]").interpret(context);
 //        ss = Parser2.parse2("GenConf/NeedGens/NeedGen/Params/Param$.id$").interpret(context);

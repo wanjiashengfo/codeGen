@@ -5,14 +5,14 @@
 		<NeedGen id="UserGenConf" provider="XmlModuleGenConf" themeId="simple">
 			<Params>
 				<Param id="fileName">UserGenConf.xml</Param>
-				<Param id="fileName2">UserGenConf1333.xml</Param>
+<!--				<Param id="fileName2">UserGenConf1333.xml</Param>-->
 			</Params>
 		</NeedGen>
-		<NeedGen id="UserGenConf1" provider="XmlModuleGenConf" themeId="simple">
-                <params>
-                    <param id="fileName3">UserGenConf14444.xml</param>
-                </params>
-            </NeedGen>
+<!--		<NeedGen id="UserGenConf1" provider="XmlModuleGenConf" themeId="simple">-->
+<!--                <params>-->
+<!--                    <param id="fileName3">UserGenConf14444.xml</param>-->
+<!--                </params>-->
+<!--            </NeedGen>-->
 		<!--	  <NeedGen id="UserGenConf2" provider="XmlModuleGenConf" themeId="simple">
               <params>
                   <param id="fileName">UserGenConf2.xml</param>
@@ -110,7 +110,7 @@
           </NeedGen>-->
 	</NeedGens>
 	<Themes>
-		<Theme id="simple">cn/javass/themes/simple</Theme>
+		<Theme id="simple">themes</Theme>
 	</Themes>
 	<Constants>
 		<Constant id="prePackage">cn.javass</Constant>

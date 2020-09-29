@@ -28,6 +28,7 @@ public class Context {
 
     public static Context getInstance(String filePathName) throws Exception {
         Context c = mapCtx.get(filePathName);
+//        Context c = mapCtx.get("themes/simple/ThemeConf.xml");
         if(c==null){
             Document document = XmlUtil.getDocument(filePathName);
             c = new Context(document);

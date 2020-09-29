@@ -5,7 +5,7 @@ import lombok.Getter;
 public enum ExpressionEnum {
     dot("."),separator("/"),dollar("$"),openBracket("["),closeBracket("]"),
     equal("="),comma(","),xml("xml"),xmlFilePre("xgenconfxml/"),
-    themeXmlName("ThemeConf.xml");
+    themeXmlName("ThemeConf.xml"),location("Location");
     @Getter
     private String expr;
 

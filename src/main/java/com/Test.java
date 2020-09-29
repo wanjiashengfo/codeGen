@@ -16,7 +16,7 @@ public class Test {
 
         needGen.addEle(param);
 //        Context context = Context.getInstance("xgenconfxml/GenConf.xml");
-        Context context = Context.getInstance("xgenconfxml/GenConf.xml");
+        Context context = Context.getInstance("themes/GenConf.xml");
 
 //        String[] ss = Parser.parse("GenConf/NeedGens/NeedGen$/Params/Param$[id=fileName2]").interpret(context);
         String[] ss = genconf.interpret(context);

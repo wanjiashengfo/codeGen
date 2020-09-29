@@ -52,10 +52,15 @@ public class ModuleGenConfXmlImpl implements ModuleGenConfImplementor {
     }
     private Context getContext(Map<String, String> param){
         Context c = null;
+        System.out.println("usergenConf路径===="+new GenConfBuilder().addXmlFilePre().addOtherValue(param.get(ModuleGenConfEnum.fileName.toString())).build());
         try {
             c = Context.getInstance(
-                    new GenConfBuilder().addXmlFilePre().addOtherValue(param.get(ModuleGenConfEnum.fileName)).build()
+                    new GenConfBuilder().addXmlFilePre().addOtherValue(param.get(ModuleGenConfEnum.fileName.toString())).build()
             );
+//            c = Context.getInstance(
+//                    new GenConfBuilder().addXmlFilePre().addOtherValue(param.get(ModuleGenConfEnum.fileName.toString())).build()
+//            );
+
         } catch (Exception e) {
             e.printStackTrace();
         }

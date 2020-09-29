@@ -9,6 +9,7 @@ import com.xgen.genconf.vo.NeedGenModel;
 import com.xgen.genconf.vo.ThemeModel;
 import com.xgen.util.readxml.Context;
 import com.xgen.util.readxml.Parser;
+import com.xgen.util.readxml.Parser2;
 import com.xgen.util.readxml.ReadXmlExpression;
 
 import java.util.ArrayList;
@@ -80,7 +81,7 @@ public class GenConfXmlImpl implements GenConfImplementor {
             ThemeModel tm = new ThemeModel();
             ThemeImplementor themeImpl = new ThemeXmlImpl();
             HashMap<String, String> params = new HashMap<String, String>();
-            params.put(ThemeEnum.Location.toString(),locations[i]);
+            params.put(ExpressionEnum.location.getExpr(),locations[i]);
             tm.setId(ids[i]);
             tm.setLocation(locations[i]);
             tm.setMapGenOutTypes(themeImpl.getMapGenOutTypes(ids[i],params));
@@ -197,6 +198,7 @@ public class GenConfXmlImpl implements GenConfImplementor {
                 .addSeparator().addTheme().addDollar()
                         .build()
         );
+
         return re.interpret(c);
     }
 }

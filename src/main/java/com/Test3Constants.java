@@ -16,7 +16,7 @@ public class Test3Constants {
 
 
 //        Context context = Context.getInstance("xgenconfxml/GenConf.xml");
-        Context context = Context.getInstance("xgenconfxml/GenConf.xml");
+        Context context = Context.getInstance("themes/GenConf.xml");
 
 
 //       //组装一个抽象语法树

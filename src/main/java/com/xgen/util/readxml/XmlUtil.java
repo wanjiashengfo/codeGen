@@ -14,6 +14,7 @@ public class XmlUtil {
     }
 
     public static Document getDocument(String filePathName) throws Exception {
+        System.out.println("filePathName===="+filePathName);
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         ClassLoader classLoader = XmlUtil.class.getClassLoader();

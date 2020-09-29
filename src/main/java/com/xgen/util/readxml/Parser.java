@@ -248,7 +248,7 @@ public class Parser {
             }
             //每次生成一个新的抽象树对象，就应该添加到缓存里面,应该把retRe克隆一份（原型模式）
             if(prefixStr!=null&&prefixStr.trim().length()>0){
-                mapRe.put(prefixStr+FORWAR_SLASH,(ReadXmlExpression)retRe.clone());
+                mapRe.put(prefixStr+FORWAR_SLASH+path,(ReadXmlExpression)retRe.clone());
             }else {
                 mapRe.put(path,(ReadXmlExpression)retRe.clone());
             }
