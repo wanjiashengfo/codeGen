@@ -51,12 +51,12 @@ public class ConfManager {
         moduleConfModel = userGenConfImpl.getBaseModuleConfModel(needGenModel.getMapParams());
         moduleConfModel.setUseTheme(needGenModel.getTheme());
         moduleConfModel.setMapNeedGenTypes(userGenConfImpl.getMapNeedGenTypes(needGenModel.getMapParams()));
-        moduleConfModel.setMapExtends(userGenConfImpl.getMapExtends(needGenModel.getMapParams()));
+        moduleConfModel.setMapExtends(userGenConfImpl.getMapExtends(genConf,needGenModel.getMapParams()));
         this.mapModuleConf.put(moduleConfModel.getModuleId(),moduleConfModel);
     }
     private void readGenConf(GenConfImplementor provider){
         genConf.setNeedGens(provider.getNeedGens());
         genConf.setThemes(provider.getThemes());
-        genConf.setMapconstants(provider.getMapConstants());
+        genConf.setMapConstants(provider.getMapConstants());
     }
 }

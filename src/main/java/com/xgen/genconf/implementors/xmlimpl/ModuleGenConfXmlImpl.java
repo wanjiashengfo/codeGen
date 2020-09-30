@@ -3,7 +3,9 @@ package com.xgen.genconf.implementors.xmlimpl;
 import com.xgen.genconf.constants.ExpressionEnum;
 import com.xgen.genconf.constants.ModuleGenConfEnum;
 import com.xgen.genconf.implementors.ModuleGenConfImplementor;
+import com.xgen.genconf.implementors.dynamicparse.ParseContext;
 import com.xgen.genconf.vo.ExtendConfModel;
+import com.xgen.genconf.vo.GenConfModel;
 import com.xgen.genconf.vo.ModuleConfModel;
 import com.xgen.util.readxml.Context;
 import com.xgen.util.readxml.Parser;
@@ -22,11 +24,11 @@ public class ModuleGenConfXmlImpl implements ModuleGenConfImplementor {
         return mcm;
     }
 
-    public Map<String, List<String>> getMapNeedGenTypes(Map<String, String> param) {
+    public Map<String, List<String>> getMapNeedGenTypes( Map<String, String> param) {
         return this.parseNeedGenTypes(this.getContext(param));
     }
 
-    public Map<String, ExtendConfModel> getMapExtends(Map<String, String> param) {
+    public Map<String, ExtendConfModel> getMapExtends(GenConfModel gm,Map<String, String> param) {
         HashMap<String, ExtendConfModel> map = new HashMap<String, ExtendConfModel>();
         String [] extendIds = parseExtendIds(this.getContext(param));
         String [] isSingle = parseIsSingles(this.getContext(param));
@@ -41,7 +43,10 @@ public class ModuleGenConfXmlImpl implements ModuleGenConfImplementor {
             }
             map.put(ecm.getId(),ecm);
         }
-        return null;
+        //等读取完成后 再来动态解析
+        ParseContext pctx = new ParseContext();
+//        map = (HashMap<String, ExtendConfModel>) pctx.parse(gm ,map);
+        return pctx.parse(gm ,map);
     }
     private void parseModuleId(ModuleConfModel mcm, Context c){
         c.init();
@@ -102,7 +107,7 @@ public class ModuleGenConfXmlImpl implements ModuleGenConfImplementor {
         HashMap<String, List<String>> map = new HashMap<String, List<String>>();
         ReadXmlExpression re = Parser.parse(new ModuleGenConfBuilder().addModuleGenConf()
                 .addSeparator().addExtendConfs().addSeparator().addExtendConf()
-                .addDollar().addDot().addIsSingle().addDollar().build());
+                .addDollar().build());
 
         return re.interpret(ctx);
     }

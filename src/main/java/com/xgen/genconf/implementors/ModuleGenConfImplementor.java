@@ -23,5 +23,5 @@ public interface ModuleGenConfImplementor {
 
     public Map<String,List<String>> getMapNeedGenTypes(Map<String,String> params);
 
-    public Map<String,ExtendConfModel> getMapExtends(Map<String,String> params);
+    public Map<String,ExtendConfModel> getMapExtends(GenConfModel gm,Map<String,String> params);
 }
