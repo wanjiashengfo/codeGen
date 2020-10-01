@@ -1,5 +1,7 @@
 package com.xgen.dispatch;
 
+import com.xgen.dispatch.command.CmdInvoker;
+import com.xgen.dispatch.command.DefaultCommand;
 import com.xgen.genconf.GenConfFactory;
 import com.xgen.genconf.implementors.GenConfImplementor;
 import com.xgen.genconf.vo.ModuleConfModel;
@@ -43,6 +45,13 @@ public class GenFacade{
      * @param mcm
      */
     private static void genOneModule(ModuleConfModel mcm){
-
+        //发出一个命令 让x-gen按照配置去生成相应的内容
+        //1.创建命令对象
+        DefaultCommand cmd = new DefaultCommand(mcm);
+        //2.创建invoker
+        CmdInvoker invoker = new CmdInvoker();
+        invoker.setCmd(cmd);
+        //3.通过invoker执行命令
+        invoker.doCommand();
     }
 }
