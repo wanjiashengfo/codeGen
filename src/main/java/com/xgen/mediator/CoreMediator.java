@@ -4,6 +4,7 @@ import com.xgen.genconf.GenConfFactory;
 import com.xgen.genconf.implementors.GenConfImplementor;
 import com.xgen.genconf.implementors.xmlimpl.GenConfXmlImpl;
 import com.xgen.genconf.vo.ModuleConfModel;
+import com.xgen.genproxy.GenProxyFactory;
 
 import java.util.Collection;
 
@@ -25,5 +26,9 @@ public class CoreMediator {
     }
     public Collection<ModuleConfModel> genNeedGenModuleConf(GenConfImplementor provider){
         return  GenConfFactory.createGernConfEbi(provider).getMapModuleConf().values();
+    }
+
+    public void needProxyGen(){
+        GenProxyFactory.createGenProxy();
     }
 }
