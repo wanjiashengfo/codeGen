@@ -41,4 +41,13 @@ public class CoreMediator {
     public String getNeedGenTypeClass(String needGenType, ModuleConfModel moduleConf){
         return GenConfFactory.createGernConfEbi().getThemeGenType(moduleConf,needGenType).getGenTypeClass();
     }
+
+    public Object getTemplateContent(ModuleConfModel moduleConf,String genTypeId){
+        return null;
+    }
+
+    public Object templateReplaceProperties(Object obj){
+        return null;
+
+    }
 }

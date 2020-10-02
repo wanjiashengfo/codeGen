@@ -1,6 +1,10 @@
 package com.xgen.geninvocation;
 
 import com.xgen.genconf.vo.ModuleConfModel;
+import com.xgen.geninvocation.decorator.DefaultComponent;
+import com.xgen.geninvocation.decorator.GenComponent;
+import com.xgen.geninvocation.decorator.ReadTemplateContent;
+import com.xgen.geninvocation.decorator.ReplaceProperty;
 
 public abstract class BaseGenAction {
     /**
@@ -13,11 +17,17 @@ public abstract class BaseGenAction {
         Object obj = initObject();
 
         //2.执行具体generate之前要执行的功能
-        beforeAction(moduleConf);
+        Object before =  this.beforeAction(moduleConf);
+        if(before != null){
+            obj = this.executeDecorators(moduleConf,obj,(GenComponent)before);
+        }
         //3.执行action的功能
         obj = execute(moduleConf,obj);
         //4.执行具体generate之后要执行的功能
-        afterAction(moduleConf);
+        Object after =  this.afterAction(moduleConf);
+        if(after != null){
+            obj = this.executeDecorators(moduleConf,obj,(GenComponent)after);
+        }
         return obj;
     }
 
@@ -31,15 +41,15 @@ public abstract class BaseGenAction {
      * 钩子操作 在执行action之前要实现的功能
      * @param moduleConf
      */
-    public void beforeAction(ModuleConfModel moduleConf){
-
+    public GenComponent beforeAction(ModuleConfModel moduleConf){
+        return null;
     }
     /**
      * 钩子操作 在执行action之前要实现的功能
      * @param moduleConf
      */
-    public void afterAction(ModuleConfModel moduleConf){
-
+    public GenComponent afterAction(ModuleConfModel moduleConf){
+        return null;
     }
 
     /**
@@ -49,4 +59,27 @@ public abstract class BaseGenAction {
      * @return
      */
     public abstract Object execute(ModuleConfModel moduleConf,Object obj);
+
+    /**
+     * 执行action的装饰对象
+     * @param moduleConf
+     * @param obj
+     * @param gc
+     * @return
+     */
+    public abstract Object executeDecorators(ModuleConfModel moduleConf, Object obj, GenComponent gc);
+
+    /**
+     * 提供给子类的公共方法 缺省执行action操作前的装饰器对象
+     * @param moduleConf
+     * @return
+     */
+    public GenComponent defaultBeforeAction(ModuleConfModel moduleConf){
+        GenComponent gc = new DefaultComponent();
+        //1：读取相应的模板文件
+        GenComponent d1 = new ReadTemplateContent(gc);
+        //2：分解模板文件里面需要替换的属性，从moduleConf里面取值替换过去
+        GenComponent d2 = new ReplaceProperty(d1);
+        return gc;
+    }
 }

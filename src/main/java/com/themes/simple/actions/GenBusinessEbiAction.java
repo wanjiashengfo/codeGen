@@ -3,6 +3,7 @@ package com.themes.simple.actions;
 
 import com.xgen.genconf.vo.ModuleConfModel;
 import com.xgen.geninvocation.BaseGenAction;
+import com.xgen.geninvocation.decorator.GenComponent;
 
 public class GenBusinessEbiAction extends BaseGenAction {
 
@@ -20,6 +21,14 @@ public class GenBusinessEbiAction extends BaseGenAction {
 		return obj;
 	}
 
+	@Override
+	public Object executeDecorators(ModuleConfModel moduleConf, Object obj, GenComponent gc) {
+		return gc.operation(moduleConf,"GenBusinessEbi",obj);
+	}
+	@Override
+	public GenComponent beforeAction(ModuleConfModel moduleConf){
+		return super.defaultBeforeAction(moduleConf);
+	}
 
-	
+
 }
