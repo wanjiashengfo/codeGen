@@ -14,7 +14,7 @@ public class DefaultHandler extends GenHandler{
     }
     public void handleRequest(ModuleConfModel mcm){
         //1.继续调用真正实现生成功能的模块
-        CoreMediator.getInstance().needProxyGen();
+        CoreMediator.getInstance().needProxyGen(needGenType,mcm);
         //2.交给父类 继续职责链的后续处理
     }
 }
