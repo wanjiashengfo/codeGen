@@ -1,6 +1,7 @@
 package com.xgen.genconf;
 
 import com.xgen.genconf.vo.GenConfModel;
+import com.xgen.genconf.vo.GenTypeModel;
 import com.xgen.genconf.vo.ModuleConfModel;
 
 import java.util.Map;
@@ -18,4 +19,13 @@ public interface GenConfEbi {
      * @return key模块名称 value相应模块的配置数据
      */
     public Map<String,ModuleConfModel> getMapModuleConf();
+    //提供点友好方法
+
+    /**
+     * 根据需要生成的模块配置和theme中生成类型的编号 来获取相应的theme中的生成类型的model
+     * @param moduleConf
+     * @param needGenTypeId
+     * @return
+     */
+    public GenTypeModel getThemeGenType(ModuleConfModel moduleConf,String needGenTypeId);
 }

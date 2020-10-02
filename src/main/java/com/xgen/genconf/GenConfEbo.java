@@ -3,6 +3,7 @@ package com.xgen.genconf;
 import com.xgen.genconf.confmanager.ConfManager;
 import com.xgen.genconf.implementors.GenConfImplementor;
 import com.xgen.genconf.vo.GenConfModel;
+import com.xgen.genconf.vo.GenTypeModel;
 import com.xgen.genconf.vo.ModuleConfModel;
 
 import java.util.Map;
@@ -19,6 +20,9 @@ public class GenConfEbo implements GenConfEbi {
 
     public static GenConfEbi getInstance(GenConfImplementor provider){
         if(ebo==null){
+            if(provider==null){
+                throw new IllegalArgumentException("第一次创建配置对象，provider不能为空");
+            }
             ebo = new GenConfEbo(provider);
         }
         return ebo;
@@ -36,5 +40,11 @@ public class GenConfEbo implements GenConfEbi {
     public Map<String, ModuleConfModel> getMapModuleConf() {
         //获取相应的配置数据
         return ConfManager.getInstance(provider).getMapModuleConf();
+    }
+
+    @Override
+    public GenTypeModel getThemeGenType(ModuleConfModel moduleConf, String needGenTypeId) {
+        return getGenConf().getThemeById(moduleConf.getUseTheme()).getMapGenTypes().get(needGenTypeId);
+
     }
 }
