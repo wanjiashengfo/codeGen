@@ -47,4 +47,10 @@ public class GenConfEbo implements GenConfEbi {
         return getGenConf().getThemeById(moduleConf.getUseTheme()).getMapGenTypes().get(needGenTypeId);
 
     }
+
+    @Override
+    public String getThemeGenOutTypeClass(ModuleConfModel moduleConf, String needGenOutTypeId) {
+        return this.getGenConf().getThemeById(moduleConf.getUseTheme()).getMapGenOutTypes().get(needGenOutTypeId);
+
+    }
 }

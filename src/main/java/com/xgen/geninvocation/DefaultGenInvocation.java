@@ -6,7 +6,9 @@ import com.xgen.geninvocation.state.State;
 import lombok.Getter;
 import lombok.Setter;
 
-public class DefaultGenInvocation implements GenInvocation{
+import java.util.Observable;
+
+public class DefaultGenInvocation extends Observable implements GenInvocation{
     /**
      * 持有一个状态对象
      */
@@ -22,6 +24,21 @@ public class DefaultGenInvocation implements GenInvocation{
      */
     @Getter
     private ModuleConfModel moduleConf;
+    /**
+     * 存放多个解析过程中的临时的内容
+     */
+    @Getter
+    @Setter
+    private Object tempContent = null;
+
+    /**
+     * 通知内容已经生成好了 可以出发联动
+     * @param obj
+     */
+    public void setContentOver(Object obj){
+        this.setChanged();
+        this.notifyObservers(obj);
+    }
 
     public DefaultGenInvocation(String needGenType,ModuleConfModel moduleConf){
         this.needGenType = needGenType;
