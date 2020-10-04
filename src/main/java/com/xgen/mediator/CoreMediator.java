@@ -69,4 +69,15 @@ public class CoreMediator {
         }
 
     }
+
+    public String getThemeMbPathFile(ModuleConfModel moduleConf,String genTypeId){
+        return GenConfFactory.createGernConfEbi().getGenConf().getThemeById(moduleConf.getUseTheme()).getMapGenTypes().get(genTypeId)
+                .getMapParams().get("mbPathFile");
+    }
+
+    public String getThemePath(ModuleConfModel moduleConf){
+        return  GenConfFactory.createGernConfEbi().getGenConf()
+                .getThemeById(moduleConf.getUseTheme()).getLocation();
+    }
+
 }
