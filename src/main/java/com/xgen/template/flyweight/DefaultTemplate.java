@@ -2,6 +2,8 @@ package com.xgen.template.flyweight;
 
 import com.xgen.genconf.constants.ExpressionEnum;
 import com.xgen.genconf.vo.ModuleConfModel;
+import com.xgen.template.visitors.TemplateElement;
+import com.xgen.template.visitors.Visitor;
 
 public class DefaultTemplate implements TemplateFlyweight{
     /**
@@ -36,7 +38,7 @@ public class DefaultTemplate implements TemplateFlyweight{
             //获得模板中需要的属性
             String className =  templateContent.substring(begin+ExpressionEnum.methodBeginStr.getExpr().length(),end);
             //运行method获取到结果值
-            String methodValue = "";
+            String methodValue =""+ callMethodVisitor(className,moduleConf);
             //把这个值替换到模板当中的相应位置去
             templateContent = templateContent.replace(ExpressionEnum.propBeginStr.getExpr()
                     +className+ExpressionEnum.propEndStr.getExpr(),methodValue);
@@ -67,5 +69,17 @@ public class DefaultTemplate implements TemplateFlyweight{
             templateContent = ""+nowReplaceProperties(moduleConf,templateContent);
         }
         return templateContent;
+    }
+
+    private Object callMethodVisitor(String className,ModuleConfModel moduleConf){
+        Object ret = null;
+        try {
+            Visitor v = (Visitor)Class.forName(className).newInstance();
+            TemplateElement element = new TemplateElement(moduleConf);
+            ret = element.accept(v);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
     }
 }

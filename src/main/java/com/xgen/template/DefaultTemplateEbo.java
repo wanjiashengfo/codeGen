@@ -24,7 +24,7 @@ public class DefaultTemplateEbo implements TemplateEbi{
         this.moduleConf = moduleConf;
         this.genTypeId = genTypeId;
         //初始化
-        flyweight = TemplateFlyweightFactory.getInstance().getTemplateFlyweight(moduleConf,genTypeId);
+        flyweight = TemplateFlyweightFactory.getInstance().getTemplateFlyweight(moduleConf,this.genTypeId);
         nowContent = flyweight.getRawContent();
     }
 
