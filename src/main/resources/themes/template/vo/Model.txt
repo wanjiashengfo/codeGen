@@ -1,4 +1,4 @@
-package ${modulePackge}.vo;
+package ${modulePackage}.vo;
 
 public class ${moduleNameSuperCase}Model implements java.io.Serializable{
 	public static final String TBL_NAME = "tbl_${moduleNameSuperCase}";

@@ -1,8 +1,8 @@
-package ${modulePackge}.business.ebi;
+package ${modulePackage}.business.ebi;
 
 import java.util.Collection;
 
-import ${modulePackge}.vo.*;
+import ${modulePackage}.vo.*;
 
 public interface ${moduleNameSuperCase}Ebi {
 	public String create(${moduleNameSuperCase}Model obj);

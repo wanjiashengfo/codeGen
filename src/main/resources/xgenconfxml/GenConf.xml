@@ -113,7 +113,7 @@
 		<Theme id="simple">themes</Theme>
 	</Themes>
 	<Constants>
-		<Constant id="prePackage">cn.javass</Constant>
+		<Constant id="prePackage">com</Constant>
 		<Constant id="projectName">test</Constant>
 	</Constants>
 </GenConf>

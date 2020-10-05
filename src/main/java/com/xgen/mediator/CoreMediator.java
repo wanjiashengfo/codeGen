@@ -13,6 +13,7 @@ import com.xgen.template.TemplateFactory;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Observer;
 
 /**
@@ -77,15 +78,23 @@ public class CoreMediator {
         }
 
     }
-
     public String getThemeMbPathFile(ModuleConfModel moduleConf,String genTypeId){
         return GenConfFactory.createGernConfEbi().getGenConf().getThemeById(moduleConf.getUseTheme()).getMapGenTypes().get(genTypeId)
                 .getMapParams().get("mbPathFile");
     }
-
     public String getThemePath(ModuleConfModel moduleConf){
         return  GenConfFactory.createGernConfEbi().getGenConf()
                 .getThemeById(moduleConf.getUseTheme()).getLocation();
     }
-
+    public Map<String,String> getGenTypeParams(ModuleConfModel moduleConf,String genTypeId){
+        return GenConfFactory.createGernConfEbi().getThemeGenType(moduleConf,genTypeId).getMapParams();
+    }
+    public ModuleConfModel getObserverModuleConf(Object obj){
+        DefaultGenInvocation invocation = (DefaultGenInvocation)obj;
+        return invocation.getModuleConf();
+    }
+    public String getObserverGenTypeId(Object obj){
+        DefaultGenInvocation invocation = (DefaultGenInvocation)obj;
+        return invocation.getNeedGenType();
+    }
 }

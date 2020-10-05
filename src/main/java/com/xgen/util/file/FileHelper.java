@@ -9,6 +9,10 @@ public class FileHelper {
     private FileHelper(){
 
     }
+    public static void genDir(String dirPath){
+        File f = new File(dirPath);
+        f.mkdirs();
+    }
 
     public static String readFile(String path){
         String content = "";
@@ -34,6 +38,7 @@ public class FileHelper {
     }
 
     public static void writeFile(String pathName,String content){
+        System.out.println("pathName===="+pathName);
         File f = new File(pathName);
         if(f.exists()){
             f.delete();
@@ -48,7 +53,11 @@ public class FileHelper {
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-
+            try {
+                dout.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

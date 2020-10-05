@@ -60,7 +60,7 @@
 		<ExtendConf id="codeOutPath" isSingle="true">build</ExtendConf>
 		<ExtendConf id="moduleName" isSingle="true">test</ExtendConf>
 		<ExtendConf id="moduleNameSuperCase" isSingle="true">Test</ExtendConf>
-		<ExtendConf id="modulePackge" isSingle="true">${gm.getMapConstants().get("prePackage");}.${gm.getMapConstants().get("projectName");}.test</ExtendConf>
+		<ExtendConf id="modulePackage" isSingle="true">${gm.getMapConstants().get("prePackage");}.${gm.getMapConstants().get("projectName");}.test</ExtendConf>
 		<ExtendConf id="action_modelName" isSingle="true">tm</ExtendConf>
 		<ExtendConf id="action_queryModelName" isSingle="true">tqm</ExtendConf>
 		<ExtendConf id="action_webModelName" isSingle="true">twm</ExtendConf>
