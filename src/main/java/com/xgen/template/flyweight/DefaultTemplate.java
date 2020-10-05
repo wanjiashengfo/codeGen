@@ -34,14 +34,14 @@ public class DefaultTemplate implements TemplateFlyweight{
         int begin = templateContent.indexOf(ExpressionEnum.methodBeginStr.getExpr());
         if(begin>=0) {
             int end = begin + ExpressionEnum.methodBeginStr.getExpr().length()
-                    + templateContent.substring(begin + ExpressionEnum.methodEndStr.getExpr().length()).indexOf(ExpressionEnum.methodEndStr.getExpr());
+                    + templateContent.substring(begin + ExpressionEnum.methodEndStr.getExpr().length()).indexOf(ExpressionEnum.methodEndStr.getExpr())-1;
             //获得模板中需要的属性
             String className =  templateContent.substring(begin+ExpressionEnum.methodBeginStr.getExpr().length(),end);
             //运行method获取到结果值
             String methodValue =""+ callMethodVisitor(className,moduleConf);
             //把这个值替换到模板当中的相应位置去
-            templateContent = templateContent.replace(ExpressionEnum.propBeginStr.getExpr()
-                    +className+ExpressionEnum.propEndStr.getExpr(),methodValue);
+            templateContent = templateContent.replace(ExpressionEnum.methodBeginStr.getExpr()
+                    +className+ExpressionEnum.methodEndStr.getExpr(),methodValue);
             //一直替换到模板内容里面没有可替换的内容就结束了
             //递归
             templateContent = ""+nowReplaceProperties(moduleConf,templateContent);

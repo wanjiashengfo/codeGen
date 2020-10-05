@@ -17,6 +17,7 @@ public class FileHelper {
             din = new DataInputStream(new BufferedInputStream(
                     FileHelper.class.getClassLoader().getResourceAsStream(path)
             ));
+            din.available();
             byte bs[] = new byte[din.available()];
             din.read(bs);
             content = new String(bs);

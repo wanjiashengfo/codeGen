@@ -1,4 +1,4 @@
-package com.themes.simple.visitor;
+package com.themes.simple.visitors;
 
 
 import com.xgen.genconf.vo.ModuleConfModel;

@@ -53,6 +53,7 @@ public class DefaultGenInvocation extends Observable implements GenInvocation{
     }
     @Override
     public void executeGen() {
+
         //设置generate调用流程开始需要执行的状态
         state = new DefaultBeginState();
         //让状态执行工作

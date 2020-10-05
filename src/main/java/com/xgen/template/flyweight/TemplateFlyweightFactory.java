@@ -36,7 +36,7 @@ public class TemplateFlyweightFactory {
         //帮助拼接模板文件的位置
         String mbPathFile = CoreMediator.getInstance().getThemeMbPathFile(moduleConf,genTypeId);
         String themePath = CoreMediator.getInstance().getThemePath(moduleConf);
-        String templatePath = themePath + ExpressionEnum.separator.getExpr() + ExpressionEnum.template.getExpr()
+        String templatePath = themePath + ExpressionEnum.separator.getExpr()+ ExpressionEnum.template.getExpr()
                 + ExpressionEnum.separator.getExpr() + mbPathFile;
         return getTemplateFlyweight(templatePath);
     }

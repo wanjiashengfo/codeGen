@@ -1,10 +1,7 @@
 package com.xgen.geninvocation;
 
 import com.xgen.genconf.vo.ModuleConfModel;
-import com.xgen.geninvocation.decorator.DefaultComponent;
-import com.xgen.geninvocation.decorator.GenComponent;
-import com.xgen.geninvocation.decorator.ReadTemplateContent;
-import com.xgen.geninvocation.decorator.ReplaceProperty;
+import com.xgen.geninvocation.decorator.*;
 
 public abstract class BaseGenAction {
     /**
@@ -80,6 +77,7 @@ public abstract class BaseGenAction {
         GenComponent d1 = new ReadTemplateContent(gc);
         //2：分解模板文件里面需要替换的属性，从moduleConf里面取值替换过去
         GenComponent d2 = new ReplaceProperty(d1);
-        return gc;
+        GenComponent d3 = new ReplaceMethods(d2);
+        return d3;
     }
 }

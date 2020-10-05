@@ -29,7 +29,7 @@ public class Parser {
 
     }
     public static ReadXmlExpression parse(String expr){
-        System.out.println("=======使用备忘录=======");
+//        System.out.println("=======使用备忘录=======");
         ReadXmlExpression retObj = null;
         //1.应该获取备忘录对象
         ParseMemento memento = ParseCaretaker.getInstance().retriveMemnto();

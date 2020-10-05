@@ -8,6 +8,8 @@ import com.xgen.geninvocation.DefaultGenInvocation;
 import com.xgen.geninvocation.GenInvocation;
 import com.xgen.geninvocation.GenInvocationFactory;
 import com.xgen.genproxy.GenProxyFactory;
+import com.xgen.template.TemplateEbi;
+import com.xgen.template.TemplateFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -34,7 +36,8 @@ public class CoreMediator {
     }
 
     public void needProxyGen(String needGenType, ModuleConfModel moduleConf){
-        GenProxyFactory.createGenProxy( needGenType,  moduleConf);
+
+        GenProxyFactory.createGenProxy( needGenType,  moduleConf).executeGen();
     }
 
     public GenInvocation getDefaultGenInvocation(String needGenType, ModuleConfModel moduleConf){
@@ -46,11 +49,16 @@ public class CoreMediator {
     }
 
     public Object getTemplateContent(ModuleConfModel moduleConf,String genTypeId){
-        return null;
+        //直接传递模板管理的对象
+        return TemplateFactory.createTemplateEbi(moduleConf,genTypeId);
     }
 
     public Object templateReplaceProperties(Object obj){
-        return null;
+        return ((TemplateEbi)obj).replaceProperties();
+    }
+
+    public Object templateReplaceMethods(Object obj){
+        return ((TemplateEbi)obj).replaceMethods();
     }
 
     public void registerObservers(DefaultGenInvocation ctx){
