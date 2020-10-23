@@ -90,7 +90,7 @@ public class Parser {
     /**
      * 根据传入的表达式，通过解析，组合成为一个抽象的语法树
      * @param
-     * @return
+     * @return 表达式对应的抽象语法树
      */
     private static ReadXmlExpression parse2(String needParseExpr,String notParseExpr,Map<String,ReadXmlExpression> mapRe){
         listElePath = new ArrayList<String>();

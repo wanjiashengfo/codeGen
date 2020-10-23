@@ -31,7 +31,7 @@ public interface GenConfEbi {
     /**
      * 根据需要生成的模块配置和theme中输出类型的编号 来获取相应的输出类型的类
      * @param moduleConf
-     * @param needGenTypeId
+     * @param needGenOutTypeId
      * @return
      */
     public String getThemeGenOutTypeClass(ModuleConfModel moduleConf,String needGenOutTypeId);

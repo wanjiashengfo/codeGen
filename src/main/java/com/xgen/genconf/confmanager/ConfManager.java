@@ -11,9 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 负责真正去获取配置数据，并缓存
+ * 负责真正去获取配置数据，并缓存配置数据
  */
 public class ConfManager {
+    //实现成单例
     private static ConfManager  manager = null;
     private ConfManager(GenConfImplementor provider) {
         readConf(provider);
